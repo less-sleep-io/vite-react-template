@@ -9,7 +9,6 @@ import {
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import NavLink from "~/components/NavLink";
-import cn from "~/utils/cn";
 
 const options = linkOptions([
   {
