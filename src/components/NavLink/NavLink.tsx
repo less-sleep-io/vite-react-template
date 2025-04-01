@@ -10,6 +10,7 @@ export interface NavLinkProps
 const NavLink = ({ children, className, to, ...rest }: NavLinkProps) => {
   return (
     <Link
+      activeOptions={{ exact: true }}
       activeProps={{
         className: cn(
           "text-neutral-900",

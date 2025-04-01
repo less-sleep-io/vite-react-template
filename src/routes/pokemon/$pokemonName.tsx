@@ -6,13 +6,7 @@ import PageLayout from "~/components/PageLayout";
 import PokemonDetails from "~/features/pokemon-details/PokemonDetails";
 import { pokemonQueryOptions } from "~/features/pokemon-details/api/pokemonQueryOptions";
 
-export const Route = createFileRoute("/pokemon/$pokemonName")({
-  component: Pokemon,
-  loader: ({ context: { queryClient }, params: { pokemonName } }) =>
-    queryClient.ensureQueryData(pokemonQueryOptions(pokemonName)),
-});
-
-function Pokemon() {
+const Pokemon = () => {
   const pokemonName = Route.useParams().pokemonName;
   const { data, isLoading } = useSuspenseQuery(
     pokemonQueryOptions(pokemonName),
@@ -28,4 +22,10 @@ function Pokemon() {
       </PageLayout.Content>
     </PageLayout>
   );
-}
+};
+
+export const Route = createFileRoute("/pokemon/$pokemonName")({
+  component: Pokemon,
+  loader: ({ context: { queryClient }, params: { pokemonName } }) =>
+    queryClient.ensureQueryData(pokemonQueryOptions(pokemonName)),
+});

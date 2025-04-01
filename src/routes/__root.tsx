@@ -8,7 +8,43 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
+import NavLink from "~/components/NavLink";
 import cn from "~/utils/cn";
+
+const options = linkOptions([
+  {
+    activeOptions: { exact: true },
+    label: "Home",
+    to: "/",
+  },
+  {
+    label: "API Example",
+    to: "/pokemon",
+  },
+]);
+
+const RouteComponent = () => {
+  return (
+    <div className="flex min-h-dvh w-full flex-col">
+      <header className="w-full border-b border-neutral-700 bg-neutral-50 p-4 dark:bg-neutral-800">
+        <nav className="flex gap-4">
+          {options.map((option) => {
+            return (
+              <NavLink {...option} key={option.to} to={option.to}>
+                {option.label}
+              </NavLink>
+            );
+          })}
+        </nav>
+      </header>
+      <div className="flex grow">
+        <Outlet />
+      </div>
+      <ReactQueryDevtools buttonPosition="top-right" />
+      <TanStackRouterDevtools />
+    </div>
+  );
+};
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;
@@ -23,62 +59,3 @@ export const Route = createRootRouteWithContext<{
     );
   },
 });
-
-const options = linkOptions([
-  {
-    activeOptions: { exact: true },
-    label: "Home",
-    to: "/",
-  },
-  {
-    label: "Docs",
-    to: "/docs",
-  },
-  {
-    label: "API Example",
-    to: "/pokemon",
-  },
-]);
-
-function RouteComponent() {
-  return (
-    <div className="flex min-h-dvh w-full flex-col">
-      <header className="w-full bg-neutral-50 p-4 dark:bg-neutral-700">
-        <nav className="flex gap-4">
-          {options.map((option) => {
-            return (
-              <Link
-                {...option}
-                activeProps={{
-                  className: cn(
-                    "text-neutral-900",
-                    "hover:text-neutral-800",
-                    "dark:text-sky-400",
-                    "dark:hover:text-sky-300",
-                  ),
-                }}
-                inactiveProps={{
-                  className: cn(
-                    "text-neutral-700",
-                    "hover:text-neutral-900",
-                    "dark:text-neutral-300",
-                    "dark:hover:text-neutral-100",
-                  ),
-                }}
-                key={option.to}
-                to={option.to}
-              >
-                {option.label}
-              </Link>
-            );
-          })}
-        </nav>
-      </header>
-      <div className="flex grow">
-        <Outlet />
-      </div>
-      <ReactQueryDevtools buttonPosition="top-right" />
-      <TanStackRouterDevtools />
-    </div>
-  );
-}

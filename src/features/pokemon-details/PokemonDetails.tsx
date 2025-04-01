@@ -4,13 +4,13 @@ import Loading from "~/components/Loading/Loading";
 
 import { PokemonType } from "./api/getPokemon";
 
-function PokemonDetails({
+const PokemonDetails = ({
   isLoading,
   pokemon,
 }: {
   isLoading: boolean;
   pokemon?: PokemonType;
-}) {
+}) => {
   if (isLoading) {
     return <Loading />;
   }
@@ -46,6 +46,6 @@ function PokemonDetails({
       </div>
     );
   }
-}
+};
 
 export default PokemonDetails;

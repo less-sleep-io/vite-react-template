@@ -12,10 +12,7 @@ const Home = () => {
       </p>
       <ul className="flex gap-4">
         <li>
-          <AppLink to="/docs">Documentation</AppLink>
-        </li>
-        <li>
-          <AppLink>API Example</AppLink>
+          <AppLink to="/pokemon">API Example</AppLink>
         </li>
       </ul>
     </div>

@@ -3,13 +3,13 @@ import { Link } from "@tanstack/react-router";
 import Button from "~/components/Button";
 import Loading from "~/components/Loading/Loading";
 
-function PokemonList({
+const PokemonList = ({
   isLoading,
   pokemon,
 }: {
   isLoading: boolean;
   pokemon: { name: string }[];
-}) {
+}) => {
   if (isLoading) {
     return <Loading />;
   }
@@ -40,6 +40,6 @@ function PokemonList({
       </div>
     </div>
   );
-}
+};
 
 export default PokemonList;

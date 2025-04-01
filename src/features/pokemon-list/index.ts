@@ -1,3 +1,2 @@
-export type { PokemonListType } from "./api/getPokemonList";
-export { pokemonListQueryOptions } from "./api/pokemonListQueryOptions";
-export { default as PokemonList } from "./PokemonList";
+export { type PokemonListType, getPokemonList } from "./api/getPokemonList";
+export { default } from "./PokemonList";
