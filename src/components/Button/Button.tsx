@@ -88,7 +88,7 @@ const variants = cva(["border", "flex", "cursor-pointer"], {
   },
 });
 
-export type ButtonProps = ComponentProps<typeof Slot> &
+export type ButtonProps = ComponentProps<"button"> &
   VariantProps<typeof variants> & {
     asChild?: boolean;
   };

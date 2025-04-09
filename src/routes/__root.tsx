@@ -18,7 +18,7 @@ const options = linkOptions([
   },
   {
     label: "API Example",
-    to: "/pokemon",
+    to: "/projects",
   },
 ]);
 
