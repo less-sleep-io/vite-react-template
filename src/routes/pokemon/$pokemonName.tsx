@@ -1,8 +1,6 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { capitalize } from "radash";
 
-import PageLayout from "~/components/PageLayout";
 import PokemonDetails from "~/features/pokemon-details/PokemonDetails";
 import { pokemonQueryOptions } from "~/features/pokemon-details/api/pokemonQueryOptions";
 
@@ -18,14 +16,5 @@ function Pokemon() {
     pokemonQueryOptions(pokemonName),
   );
 
-  return (
-    <PageLayout>
-      <PageLayout.Header>
-        <PageLayout.Title>{capitalize(pokemonName)}</PageLayout.Title>
-      </PageLayout.Header>
-      <PageLayout.Content>
-        <PokemonDetails isLoading={isLoading} pokemon={data} />
-      </PageLayout.Content>
-    </PageLayout>
-  );
+  return <PokemonDetails isLoading={isLoading} pokemon={data} />;
 }

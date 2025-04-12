@@ -66,11 +66,7 @@ const Header = ({
 }: HeaderProps) => {
   return (
     <div
-      className={cn(
-        containerVariants({ alignContent }),
-        "border-b border-neutral-700",
-        className,
-      )}
+      className={cn(containerVariants({ alignContent }), className)}
       {...rest}
     >
       <div className={cn(contentVariants({ maxWidth }), "px-3 py-4")}>
@@ -86,9 +82,9 @@ const Title = (props: TitleProps) => {
   return <h1 className="text-2xl text-neutral-300" {...props} />;
 };
 
-export type PageLayoutProps = ComponentPropsWithRef<"div">;
+export type ViewLayoutProps = ComponentPropsWithRef<"div">;
 
-const PageLayout = ({ children, ...rest }: PageLayoutProps) => {
+const ViewLayout = ({ children, ...rest }: ViewLayoutProps) => {
   return (
     <div className="flex grow flex-col" {...rest}>
       {children}
@@ -96,8 +92,8 @@ const PageLayout = ({ children, ...rest }: PageLayoutProps) => {
   );
 };
 
-PageLayout.Content = Content;
-PageLayout.Header = Header;
-PageLayout.Title = Title;
+ViewLayout.Content = Content;
+ViewLayout.Header = Header;
+ViewLayout.Title = Title;
 
-export default PageLayout;
+export default ViewLayout;
