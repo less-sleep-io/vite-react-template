@@ -1,15 +1,37 @@
 import { z } from "zod";
 
-export const todoSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  completed: z.boolean(),
-});
-export type TodoType = z.infer<typeof todoSchema>;
+import mapKeysToCamelCase from "~/utils/mapKeysToCamelCase";
 
-export const projectSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  todos: z.array(todoSchema),
-});
-export type ProjectType = z.infer<typeof projectSchema>;
+export const pokemonSchema = z
+  .object({
+    base_experience: z.number(),
+    forms: z.array(
+      z.object({
+        name: z.string(),
+        url: z.string().url(),
+      }),
+    ),
+    height: z.number(),
+    id: z.number().transform((val) => val.toString()),
+    name: z.string(),
+    order: z.number(),
+    species: z.object({
+      name: z.string(),
+      url: z.string().url(),
+    }),
+    types: z.array(
+      z.object({
+        slot: z.number(),
+        type: z.object({
+          name: z.string(),
+          url: z.string().url(),
+        }),
+      }),
+    ),
+    weight: z.number(),
+  })
+  .transform((data) => {
+    return mapKeysToCamelCase(data);
+  });
+
+export type PokemonType = z.infer<typeof pokemonSchema>;
