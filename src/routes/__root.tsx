@@ -20,12 +20,16 @@ const options = linkOptions([
     label: "API Example",
     to: "/pokemon",
   },
+  {
+    label: "Variants Example",
+    to: "/variants",
+  },
 ]);
 
 const RouteComponent = () => {
   return (
     <div className="flex min-h-dvh w-full flex-col">
-      <header className="w-full border-b border-neutral-700 bg-neutral-50 p-4 dark:bg-neutral-800">
+      <header className="w-full border-b border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
         <nav className="flex gap-4">
           {options.map((option) => {
             return (

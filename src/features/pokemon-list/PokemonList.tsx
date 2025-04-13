@@ -4,13 +4,13 @@ import Button from "~/components/Button";
 import Loading from "~/components/Loading/Loading";
 import ViewLayout from "~/components/ViewLayout";
 
-function PokemonList({
+const PokemonList = ({
   isLoading,
   pokemon,
 }: {
   isLoading: boolean;
   pokemon: { name: string }[];
-}) {
+}) => {
   if (isLoading) {
     return <Loading />;
   }
@@ -30,7 +30,9 @@ function PokemonList({
                     className="grid grid-cols-2 items-center gap-4 px-4 py-1"
                     key={name}
                   >
-                    <span className="text-medium text-neutral-300">{name}</span>
+                    <span className="text-medium text-neutral-600 dark:text-neutral-300">
+                      {name}
+                    </span>
                     <Button asChild={true} size="small" variant="contained">
                       <Link
                         params={{ pokemonName: name }}
@@ -48,6 +50,6 @@ function PokemonList({
       </ViewLayout.Content>
     </ViewLayout>
   );
-}
+};
 
 export default PokemonList;

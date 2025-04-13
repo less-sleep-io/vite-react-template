@@ -14,7 +14,7 @@ const AppLink = forwardRef<ComponentRef<typeof Link>, AppLinkProps>(
 
     return (
       <Comp
-        className={cn("text-sky-500", className, {
+        className={cn("text-sky-700 dark:text-sky-500", className, {
           type: ["underline"],
         })}
         ref={ref}

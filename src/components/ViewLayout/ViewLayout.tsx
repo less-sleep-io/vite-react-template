@@ -48,7 +48,9 @@ const Content = ({
       className={cn("grow", containerVariants({ alignContent }), className)}
       {...rest}
     >
-      <div className={cn(contentVariants({ maxWidth }))}>{children}</div>
+      <div className={cn(contentVariants({ maxWidth }), "p-10")}>
+        {children}
+      </div>
     </div>
   );
 };
@@ -79,7 +81,12 @@ const Header = ({
 export type TitleProps = ComponentPropsWithRef<"h1">;
 
 const Title = (props: TitleProps) => {
-  return <h1 className="text-2xl text-neutral-300" {...props} />;
+  return (
+    <h1
+      className="text-2xl text-neutral-600 dark:text-neutral-300"
+      {...props}
+    />
+  );
 };
 
 export type ViewLayoutProps = ComponentPropsWithRef<"div">;

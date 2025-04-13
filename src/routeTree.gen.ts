@@ -11,11 +11,18 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as VariantsImport } from './routes/variants'
 import { Route as IndexImport } from './routes/index'
 import { Route as PokemonIndexImport } from './routes/pokemon/index'
 import { Route as PokemonPokemonNameImport } from './routes/pokemon/$pokemonName'
 
 // Create/Update Routes
+
+const VariantsRoute = VariantsImport.update({
+  id: '/variants',
+  path: '/variants',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -46,6 +53,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/variants': {
+      id: '/variants'
+      path: '/variants'
+      fullPath: '/variants'
+      preLoaderRoute: typeof VariantsImport
+      parentRoute: typeof rootRoute
+    }
     '/pokemon/$pokemonName': {
       id: '/pokemon/$pokemonName'
       path: '/pokemon/$pokemonName'
@@ -67,12 +81,14 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/variants': typeof VariantsRoute
   '/pokemon/$pokemonName': typeof PokemonPokemonNameRoute
   '/pokemon': typeof PokemonIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/variants': typeof VariantsRoute
   '/pokemon/$pokemonName': typeof PokemonPokemonNameRoute
   '/pokemon': typeof PokemonIndexRoute
 }
@@ -80,27 +96,30 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/variants': typeof VariantsRoute
   '/pokemon/$pokemonName': typeof PokemonPokemonNameRoute
   '/pokemon/': typeof PokemonIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pokemon/$pokemonName' | '/pokemon'
+  fullPaths: '/' | '/variants' | '/pokemon/$pokemonName' | '/pokemon'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pokemon/$pokemonName' | '/pokemon'
-  id: '__root__' | '/' | '/pokemon/$pokemonName' | '/pokemon/'
+  to: '/' | '/variants' | '/pokemon/$pokemonName' | '/pokemon'
+  id: '__root__' | '/' | '/variants' | '/pokemon/$pokemonName' | '/pokemon/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  VariantsRoute: typeof VariantsRoute
   PokemonPokemonNameRoute: typeof PokemonPokemonNameRoute
   PokemonIndexRoute: typeof PokemonIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  VariantsRoute: VariantsRoute,
   PokemonPokemonNameRoute: PokemonPokemonNameRoute,
   PokemonIndexRoute: PokemonIndexRoute,
 }
@@ -116,12 +135,16 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/variants",
         "/pokemon/$pokemonName",
         "/pokemon/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/variants": {
+      "filePath": "variants.tsx"
     },
     "/pokemon/$pokemonName": {
       "filePath": "pokemon/$pokemonName.tsx"

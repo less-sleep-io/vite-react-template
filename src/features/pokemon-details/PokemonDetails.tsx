@@ -1,16 +1,17 @@
 import { capitalize } from "radash";
 
+import AppLink from "~/components/AppLink";
 import Loading from "~/components/Loading/Loading";
 import ViewLayout from "~/components/ViewLayout";
 import { PokemonType } from "~/types/shared.types";
 
-function PokemonDetails({
+const PokemonDetails = ({
   isLoading,
   pokemon,
 }: {
   isLoading: boolean;
   pokemon?: PokemonType;
-}) {
+}) => {
   if (isLoading) {
     return <Loading />;
   }
@@ -19,10 +20,12 @@ function PokemonDetails({
     return (
       <ViewLayout>
         <ViewLayout.Header>
-          <ViewLayout.Title>{capitalize(pokemon.name)}</ViewLayout.Title>
+          <AppLink to="/pokemon">Back</AppLink>
         </ViewLayout.Header>
         <ViewLayout.Content>
-          <div>
+          <div className="flex w-full flex-col items-center gap-5">
+            <img src={pokemon.sprites.other.dreamWorld.frontDefault} />
+            <ViewLayout.Title>{capitalize(pokemon.name)}</ViewLayout.Title>
             <table>
               <tbody>
                 {[
@@ -53,6 +56,6 @@ function PokemonDetails({
       </ViewLayout>
     );
   }
-}
+};
 
 export default PokemonDetails;

@@ -1,9 +1,12 @@
 import AppLink from "~/components/AppLink";
 import ViewLayout from "~/components/ViewLayout";
 
-const Home = () => {
+const VariantsExample = () => {
   return (
     <ViewLayout>
+      <ViewLayout.Header>
+        <ViewLayout.Title>Variants Example</ViewLayout.Title>
+      </ViewLayout.Header>
       <ViewLayout.Content alignContent="center" maxWidth="md">
         <div className="flex min-h-full w-full flex-col items-center justify-center pb-20">
           <h1 className="mb-3 max-w-xl text-2xl text-neutral-800 dark:text-neutral-300">
@@ -24,4 +27,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default VariantsExample;

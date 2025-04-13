@@ -19,6 +19,14 @@ export const pokemonSchema = z
       name: z.string(),
       url: z.string().url(),
     }),
+    sprites: z.object({
+      front_default: z.string().url(),
+      other: z.object({
+        dream_world: z.object({
+          front_default: z.string().url(),
+        }),
+      }),
+    }),
     types: z.array(
       z.object({
         slot: z.number(),

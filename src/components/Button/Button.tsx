@@ -25,10 +25,13 @@ const variants = cva(["border", "flex", "cursor-pointer"], {
     {
       class: [
         "bg-sky-600",
+        "dark:bg-sky-700",
         "hover:bg-sky-500",
         "border-sky-700",
-        "text-sky-200",
+        "dark:border-sky-600",
         "hover:border-sky-800",
+        "text-white",
+        "dark:text-sky-300",
         "hover:text-sky-100",
       ],
       intent: "primary",
@@ -36,9 +39,11 @@ const variants = cva(["border", "flex", "cursor-pointer"], {
     },
     {
       class: [
-        "border-sky-700",
-        "text-sky-400",
+        "border-sky-500",
+        "dark:border-sky-600",
         "hover:border-sky-500",
+        "text-sky-400",
+        "dark:text-sky-300",
         "hover:text-sky-300",
       ],
       intent: "primary",
@@ -99,7 +104,11 @@ const Button = forwardRef<ComponentRef<typeof Slot>, ButtonProps>(
 
     return (
       <Comp
-        className={cn(variants({ intent, size, variant }), className)}
+        className={cn(
+          "flex items-center justify-center text-center",
+          variants({ intent, size, variant }),
+          className,
+        )}
         ref={ref}
         {...rest}
       />
