@@ -44,8 +44,12 @@ const PokemonDetails = ({
                 ].map(({ label, value }) => {
                   return (
                     <tr key={value}>
-                      <th className="py-2 pr-1 text-neutral-300">{label}:</th>
-                      <td className="py-2 pl-1 text-neutral-300">{value}</td>
+                      <th className="py-2 pr-1 font-normal text-neutral-500 dark:text-neutral-400">
+                        {label}:
+                      </th>
+                      <td className="py-2 pl-1 text-neutral-800 dark:text-neutral-200">
+                        {value}
+                      </td>
                     </tr>
                   );
                 })}
