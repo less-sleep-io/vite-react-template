@@ -29,7 +29,7 @@ const options = linkOptions([
 const RouteComponent = () => {
   return (
     <div className="flex min-h-dvh w-full flex-col">
-      <header className="w-full border-b border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
+      <header className="dark:bg-neutral-850 w-full border-b border-neutral-200 bg-white p-4 dark:border-neutral-800">
         <nav className="flex gap-4">
           {options.map((option) => {
             return (

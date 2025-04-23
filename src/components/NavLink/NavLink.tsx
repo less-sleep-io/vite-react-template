@@ -13,10 +13,10 @@ const NavLink = ({ children, className, to, ...rest }: NavLinkProps) => {
       activeOptions={{ exact: true }}
       activeProps={{
         className: cn(
-          "text-sky-700",
-          "hover:text-sky-500",
-          "dark:text-sky-400",
-          "dark:hover:text-sky-300",
+          "text-primary-700",
+          "hover:text-primary-500",
+          "dark:text-primary-400",
+          "dark:hover:text-primary-300",
           className,
         ),
       }}

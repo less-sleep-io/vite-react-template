@@ -8,6 +8,34 @@ Vite React Template (VRT) is preconfigured to provide a Single Page Application 
 
 It attempts to provide an optimal developer experience by following best practices and using the latest technologies and libraries.
 
+## Getting Started
+
+1. Clone repository
+
+### Install
+
+```
+pnpm install
+```
+
+or
+
+```
+npm install
+```
+
+### Development
+
+```
+pnpm dev
+```
+
+or
+
+```
+npm dev
+```
+
 ## Routing
 
 Routing is provided by [Tanstack Router](https://tanstack.com/router/latest).
