@@ -36,6 +36,22 @@ or
 npm dev
 ```
 
+## Aliasing
+
+You can make importing easier by using aliasing. `/src` is aliased to `~`.
+
+Example:
+
+```ts
+// using relative paths
+import Button from "../../../../components/Button
+```
+
+```ts
+// using alias
+import Button from "~/components/Button
+```
+
 ## Routing
 
 Routing is provided by [Tanstack Router](https://tanstack.com/router/latest).
@@ -70,6 +86,16 @@ and much more.
 Styling
 
 Styling is provided by [Tailwind CSS](https://tailwindcss.com/).
+
+### VSCode Extension
+
+It is recommended that you install the [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) extension in Visual Studio Code for better intellisense and autocompletion support. This will help you to write Tailwind CSS classes more efficiently.
+
+When this is installed you can also set the Language Mode for CSS files to **Tailwind CSS**. This ensures that you are using Tailwind specific features like custom directives, variants and functions.
+
+1. Open the VSCode command palette.
+1. Type **Change Language Mode** and press Enter.
+1. Type **Tailwind CSS** and select it from the list.
 
 ### Helpers
 
